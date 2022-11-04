@@ -4,6 +4,9 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AngularMaterialModule} from "./material.module";
+import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
     declarations: [
@@ -14,6 +17,9 @@ import {AngularMaterialModule} from "./material.module";
         AppRoutingModule,
         BrowserAnimationsModule,
         AngularMaterialModule,
+        HttpClientModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
     ],
     providers: [],
     bootstrap: [AppComponent],
