@@ -3,7 +3,9 @@ import {Store} from "@ngrx/store";
 import {BikeListSearchCriteria} from "src/app/model/search-criteria.model";
 import {Stolenness} from "src/app/model/stolenness.model";
 import {SearchBikes} from "src/app/store/bike/bike.actions";
-import {AppState} from "src/app/store/state.model";
+import {AppState} from "src/app/store/app-state.model";
+import { Observable } from "rxjs";
+import { Bike } from "src/app/model/bike.model";
 
 @Component({
     selector: "app-bike-list-container",
@@ -13,14 +15,15 @@ import {AppState} from "src/app/store/state.model";
 })
 export class BikeListContainerComponent implements OnInit {
 
+    bikesList$: Observable<Bike[]>;
+
     constructor(private store: Store<AppState>) {}
 
     ngOnInit(): void {
-        const searchCriteria: BikeListSearchCriteria = {
-            page: 1,
-            per_page: 25,
-            stolennes: Stolenness["All"],
-        };
+        this.bikesList$ = this.store.select((store) => store.bikes);
+    }
+
+    searchBikes(searchCriteria: BikeListSearchCriteria) {
         this.store.dispatch(new SearchBikes(searchCriteria));
     }
 

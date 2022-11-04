@@ -18,8 +18,7 @@ export class BikeIndexEffects {
         ofType(BikeIndexActions.BikeIndexActionType.SearchBikes),
         mergeMap((action: BikeIndexActions.SearchBikes) => {
             return this.bikeIndexService.searchBikes(action.searchCriteria).pipe(
-                tap((data: Bike[]) => console.log(data)),
-                map((data: Bike[]) => new BikeIndexActions.SearchBikesSuccess(data)),
+                map((data: Bike[]) => new BikeIndexActions.SearchBikesSuccess(data["bikes"])),
                 catchError((error: HttpErrorResponse) => of(new BikeIndexActions.SearchBikesFailure(error))),
             );
         }),

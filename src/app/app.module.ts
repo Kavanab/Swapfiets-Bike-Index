@@ -10,6 +10,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {BikeListContainerComponent} from "./containers/bike-list/bike-list-container.component";
 import {BikeListComponent} from "./components/bike-list/bike-list.component";
 import {BikeIndexEffects} from "./store/bike/bike.effects";
+import { BikeIndexReducer } from "./store/bike/bike.reducer";
 
 @NgModule({
     declarations: [
@@ -23,7 +24,9 @@ import {BikeIndexEffects} from "./store/bike/bike.effects";
         BrowserAnimationsModule,
         AngularMaterialModule,
         HttpClientModule,
-        StoreModule.forRoot({}),
+        StoreModule.forRoot({
+            bikes: BikeIndexReducer,
+        }),
         EffectsModule.forRoot([
             BikeIndexEffects,
         ]),

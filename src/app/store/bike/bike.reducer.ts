@@ -6,7 +6,7 @@ const initialState: Array<Bike> = [];
 export function BikeIndexReducer(
     state: Array<Bike> = initialState,
     action: BikeIndexActions,
-) {
+): any {
     switch (action.type) {
         case BikeIndexActionType.SearchBikesSuccess:
             return [...state, ...action.bikes];
