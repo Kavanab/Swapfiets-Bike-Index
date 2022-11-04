@@ -7,10 +7,9 @@ import {AngularMaterialModule} from "./material.module";
 import {HttpClientModule} from "@angular/common/http";
 import {StoreModule} from "@ngrx/store";
 import {EffectsModule} from "@ngrx/effects";
-import { BikeListContainerComponent } from './containers/bike-list/bike-list-container.component';
-import { BikeListComponent } from './components/bike-list/bike-list.component';
-import { BikeIndexEffects } from "./store/bike/bike.effects";
-import {BikeIndexReducer} from "./store/bike/bike.reducer";
+import {BikeListContainerComponent} from "./containers/bike-list/bike-list-container.component";
+import {BikeListComponent} from "./components/bike-list/bike-list.component";
+import {BikeIndexEffects} from "./store/bike/bike.effects";
 
 @NgModule({
     declarations: [
@@ -26,7 +25,7 @@ import {BikeIndexReducer} from "./store/bike/bike.reducer";
         HttpClientModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([
-            BikeIndexEffects
+            BikeIndexEffects,
         ]),
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

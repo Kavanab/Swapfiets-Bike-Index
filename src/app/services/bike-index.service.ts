@@ -1,8 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-import { Observable, of } from "rxjs";
-import { Bike } from "../model/bike.model";
-import { BikeListSearchCriteria, toRequestParams } from "../model/search-criteria.model";
+import {Observable, of} from "rxjs";
+import {Bike} from "../model/bike.model";
+import {BikeListSearchCriteria, toRequestParams} from "../model/search-criteria.model";
 
 @Injectable({
     providedIn: "root",
@@ -15,6 +15,6 @@ export class BikeIndexService {
 
     searchBikes(searchCriteria: BikeListSearchCriteria): Observable<Bike[]> {
         const url = `${this.baseUrl}/search`;
-        return this.http.get<Bike[]>(url,{params: toRequestParams(searchCriteria)});
+        return this.http.get<Bike[]>(url, {params: toRequestParams(searchCriteria)});
     }
 }

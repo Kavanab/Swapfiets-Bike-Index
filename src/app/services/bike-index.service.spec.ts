@@ -1,16 +1,15 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from "@angular/core/testing";
+import {BikeIndexService} from "./bike-index.service";
 
-import { BikeIndexService } from './bike-index.service';
+describe("BikeIndexService", () => {
+    let service: BikeIndexService;
 
-describe('BikeIndexService', () => {
-  let service: BikeIndexService;
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(BikeIndexService);
+    });
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(BikeIndexService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    it("should be created", () => {
+        expect(service).toBeTruthy();
+    });
 });

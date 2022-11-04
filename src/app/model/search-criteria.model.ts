@@ -20,6 +20,6 @@ export function toRequestParams(searchCriteria: BikeListSearchCriteria): { [para
         page: searchCriteria.page.toString(),
         per_page: searchCriteria.per_page.toString(),
         stolenness: searchCriteria.stolennes,
-    }
-    return params
+    };
+    return params;
 }
