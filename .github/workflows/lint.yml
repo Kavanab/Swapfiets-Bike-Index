@@ -4,10 +4,7 @@ on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
+    branches-ignore:
       - main
 
 jobs:
@@ -29,7 +26,8 @@ jobs:
         run: npm ci
 
       - name: Run linters
-        uses: wearerequired/lint-action@v2
+        run: npm run lint
+        # uses: wearerequired/lint-action@v2
         with:
           eslint: true
           # prettier: true
