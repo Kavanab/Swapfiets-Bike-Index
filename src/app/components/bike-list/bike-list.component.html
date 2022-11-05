@@ -1,0 +1,28 @@
+<ng-container>
+    <div class="page-title">
+        <mat-card-title class="card-title">Search Bikes</mat-card-title>
+    </div>
+    <div class="input-search-container">
+        <mat-form-field class="filter-stolenness">
+            <mat-label class="select-label">Bike Status</mat-label>
+            <mat-select class="stolenness-list" 
+                        [(value)]="stateOfStolenness"
+                        [disableOptionCentering]="true">
+                <mat-option *ngFor="let state of stolenness" [value]="state">
+                    {{state}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="location-search" appearance="fill">
+            
+            <input matInput 
+                   type="text" 
+                   [(ngModel)]="location" 
+                   (ngModelChange)="searchBikesInLocation()"
+                   class="search-input"
+                   placeholder="Search for bikes in a location">
+            <mat-icon *ngIf="location" matSuffix (click)="location=''" aria-label="Clear">close</mat-icon>
+            
+          </mat-form-field>
+    </div>
+</ng-container>

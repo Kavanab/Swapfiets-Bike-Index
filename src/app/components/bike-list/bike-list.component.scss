@@ -1,0 +1,57 @@
+.card-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.input-search-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+}
+.location-search {
+    width: 80%;
+}
+.search-input {
+    color: #FFFAF0;
+    font-size: large;
+}
+::ng-deep .mat-input-element::placeholder {
+    color: #F5DEB3;
+    font-size: medium;
+}
+
+.filter-stolenness {
+    width: 80%;
+}
+::ng-deep .mat-select-panel {
+    // background: #00a9e0 ;
+    background: #FFB6C1;
+    position: absolute;
+    left: 0.4rem;
+    top: 1.7rem;
+    min-width: calc(100% + 20px) !important;
+    border-radius: 0px;
+}
+.select-label {
+    font-size: large;
+    color: #F5DEB3;
+    font-size: medium;;
+}
+::ng-deep .mat-form-field-flex {
+    background-color: rgba(0,0,0,.04);
+    padding: .75em .75em 0 .75em;
+}
+
+::ng-deep .mat-select-value {
+    color: #FFFAF0;
+    font-size: medium;
+    padding-top: 0.5em;
+}
+
+::ng-deep .mat-option-text {
+    color: #FFFAF0;
+    font-size: medium;
+}

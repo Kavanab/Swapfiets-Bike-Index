@@ -14,17 +14,39 @@ export class BikeListComponent implements OnInit, OnChanges {
     @Input() bikesList: Bike[] = [];
     @Output() searchBikes: EventEmitter<BikeListSearchCriteria> = new EventEmitter();
 
+    location: string = "";
+    stolenness: string[] = [];
+    stateOfStolenness: string = "All";
+    searchCriteria: BikeListSearchCriteria = {
+        page: 1,
+        per_page: 25,
+        stolennes: this.stateOfStolenness,
+    };
+
+    constructor() {
+        this.stolenness = Object.keys(Stolenness);
+    }
+
     ngOnInit(): void {
-        const searchCriteria: BikeListSearchCriteria = {
-            page: 1,
-            per_page: 25,
-            stolennes: Stolenness["All"],
-        };
-        this.searchBikes.emit(searchCriteria);
+        this.searchBikes.emit(this.searchCriteria);
     }
 
     ngOnChanges(changes: SimpleChanges): void {
         console.log(this.bikesList);
         
+    }
+
+    searchBikesInLocation() {
+        if(this.location) {
+            if(this.stateOfStolenness !== "Proximity") {
+                this.stateOfStolenness = "Proximity";
+            }
+            this.searchCriteria = {
+                ...this.searchCriteria,
+                stolennes: this.stateOfStolenness,
+                location: this.location,
+            };
+            this.searchBikes.emit(this.searchCriteria);
+        }
     }
 }

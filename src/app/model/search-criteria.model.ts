@@ -3,7 +3,7 @@ import {Stolenness} from "./stolenness.model";
 export interface BaseSearchCriteria {
     page: number;
     per_page: number;
-    stolennes: Stolenness;
+    stolennes: string;
 }
 
 export interface BikeListSearchCriteria extends BaseSearchCriteria {
@@ -15,11 +15,17 @@ export interface BikeListSearchCriteria extends BaseSearchCriteria {
     distance?: number;
 }
 
-export function toRequestParams(searchCriteria: BikeListSearchCriteria): { [param: string]: string | string[] } {
+export function toRequestParams(searchCriteria: BikeListSearchCriteria): { [param: string]: string | number | string[] } {
     const params = {
-        page: searchCriteria.page.toString(),
-        per_page: searchCriteria.per_page.toString(),
+        page: searchCriteria.page,
+        per_page: searchCriteria.per_page,
         stolenness: searchCriteria.stolennes,
     };
+    if (searchCriteria.location) {
+        params["location"] = searchCriteria.location;
+    }
+    if (searchCriteria.stolennes) {
+        params["stolenness"] = Stolenness[searchCriteria.stolennes];
+    }
     return params;
 }
