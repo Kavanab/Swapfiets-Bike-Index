@@ -25,7 +25,7 @@ export class BikeListComponent implements OnInit, OnChanges {
     searchCriteria: BikeListSearchCriteria = {
         page: 1,
         per_page: 50,
-        stolennes: this.stateOfStolenness,
+        stolenness: this.stateOfStolenness,
     };
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -53,7 +53,7 @@ export class BikeListComponent implements OnInit, OnChanges {
         }
         this.searchCriteria = {
             ...this.searchCriteria,
-            stolennes: this.stateOfStolenness,
+            stolenness: this.stateOfStolenness,
             location: this.location,
         };
         this.searchBikes.emit(this.searchCriteria);

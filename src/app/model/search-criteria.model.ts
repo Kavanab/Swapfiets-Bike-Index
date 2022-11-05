@@ -3,7 +3,7 @@ import {Stolenness} from "./stolenness.model";
 export interface BaseSearchCriteria {
     page: number;
     per_page: number;
-    stolennes: string;
+    stolenness: string;
 }
 
 export interface BikeListSearchCriteria extends BaseSearchCriteria {
@@ -19,13 +19,13 @@ export function toRequestParams(searchCriteria: BikeListSearchCriteria): { [para
     const params = {
         page: searchCriteria.page,
         per_page: searchCriteria.per_page,
-        stolenness: searchCriteria.stolennes,
+        stolenness: searchCriteria.stolenness,
     };
     if (searchCriteria.location) {
         params["location"] = searchCriteria.location;
     }
-    if (searchCriteria.stolennes) {
-        params["stolenness"] = Stolenness[searchCriteria.stolennes];
+    if (searchCriteria.stolenness) {
+        params["stolenness"] = Stolenness[searchCriteria.stolenness];
     }
     return params;
 }
