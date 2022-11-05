@@ -23,6 +23,9 @@ export class BikeListComponent implements OnInit, OnChanges {
         stolennes: this.stateOfStolenness,
     };
 
+    displayedColumns: string[] = ['id','title', 'location', 'manufacturer_name', 'stolen'];
+    resultsLength: number = 0;
+
     constructor() {
         this.stolenness = Object.keys(Stolenness);
     }
@@ -32,8 +35,12 @@ export class BikeListComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        console.log(this.bikesList);
         
+       if(changes["bikesList"].currentValue.listOfBikes.length > 0) {
+            console.log(changes["bikesList"].currentValue.listOfBikes);
+            this.resultsLength = changes["bikesList"].currentValue.listOfBikes.length;
+       }
+       
     }
 
     searchBikesInLocation() {
@@ -41,12 +48,12 @@ export class BikeListComponent implements OnInit, OnChanges {
             if(this.stateOfStolenness !== "Proximity") {
                 this.stateOfStolenness = "Proximity";
             }
-            this.searchCriteria = {
-                ...this.searchCriteria,
-                stolennes: this.stateOfStolenness,
-                location: this.location,
-            };
-            this.searchBikes.emit(this.searchCriteria);
         }
+        this.searchCriteria = {
+            ...this.searchCriteria,
+            stolennes: this.stateOfStolenness,
+            location: this.location,
+        };
+        this.searchBikes.emit(this.searchCriteria);
     }
 }

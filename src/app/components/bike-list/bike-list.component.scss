@@ -55,3 +55,48 @@
     color: #FFFAF0;
     font-size: medium;
 }
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .table-content {
+        display: flex;
+        width: 90%;
+        height: 25rem;
+        overflow: auto;
+    }
+
+    .mat-column-id {
+        width: 10%;
+    }
+
+    .mat-column-title, .mat-column-location {
+        width: 30%;
+    }
+
+    .mat-column-manufacturer_name {
+        width: 22%;
+    }
+
+    th {
+        font-size: medium;
+        color: #FFFAF0;
+        text-align: center;
+    }
+    .mat-table {
+        background: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mat-table-sticky {
+        background: #00a9e0;
+    }
+}
+.mat-paginator {
+    display: flex;
+    flex-direction: column;
+    background: inherit;
+    width: 96%;
+}
