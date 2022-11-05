@@ -12,6 +12,7 @@ import {BikeListComponent} from "./components/bike-list/bike-list.component";
 import {BikeIndexEffects} from "./store/bike/bike.effects";
 import {BikeIndexReducer} from "./store/bike/bike.reducer";
 import {HeaderComponent} from "./components/header/header.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import {HeaderComponent} from "./components/header/header.component";
         AppRoutingModule,
         BrowserAnimationsModule,
         AngularMaterialModule,
+        FormsModule,
         HttpClientModule,
         StoreModule.forRoot({
             bikes: BikeIndexReducer,

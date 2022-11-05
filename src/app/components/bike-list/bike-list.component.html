@@ -1,0 +1,66 @@
+<ng-container>
+    <div class="page-title">
+        <mat-card-title class="card-title">Search Bikes</mat-card-title>
+    </div>
+    <div class="input-search-container">
+        <mat-form-field class="filter-stolenness">
+            <mat-label class="select-label">Bike Status</mat-label>
+            <mat-select class="stolenness-list" 
+                        [(value)]="stateOfStolenness"
+                        (selectionChange)="searchBikesInLocation()"
+                        [disableOptionCentering]="true">
+                <mat-option *ngFor="let state of stolenness" [value]="state">
+                    {{state}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="location-search" appearance="fill">
+            
+            <input matInput 
+                   type="text" 
+                   [(ngModel)]="location" 
+                   (ngModelChange)="searchBikesInLocation()"
+                   class="search-input"
+                   placeholder="Search for bikes in a location">
+            <mat-icon *ngIf="location" matSuffix (click)="location=''" aria-label="Clear">close</mat-icon>
+            
+          </mat-form-field>
+    </div>
+    <div class="table-container">
+        <div class="table-content mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" class="bike-list-table">
+                <!-- Row number -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>#</th>
+                    <td mat-cell *matCellDef="let i = index">
+                        {{this.paginator.pageIndex === 0 ? i + 1 : 1 + i + this.paginator.pageIndex * this.paginator.pageSize}}
+                    </td>
+                </ng-container>
+                <!-- Title Column -->
+                <ng-container matColumnDef="title">
+                    <th mat-header-cell *matHeaderCellDef>Title</th>
+                    <td mat-cell *matCellDef="let row">{{row.title}}</td>
+                </ng-container>
+                <!-- Location Column -->
+                <ng-container matColumnDef="location">
+                    <th mat-header-cell *matHeaderCellDef>Location</th>
+                    <td mat-cell *matCellDef="let row">{{row.stolen_location}}</td>
+                </ng-container>
+                <!-- Description Column -->
+                <ng-container matColumnDef="manufacturer_name">
+                    <th mat-header-cell *matHeaderCellDef>Manufacturer</th>
+                    <td mat-cell *matCellDef="let row">{{row.manufacturer_name}}</td>
+                </ng-container>
+                <!-- Status Column -->
+                <ng-container matColumnDef="stolen">
+                    <th mat-header-cell *matHeaderCellDef>Stolen </th>
+                    <td mat-cell *matCellDef="let row">{{row.stolen ? "Yes": "No"}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+    <mat-paginator [pageSize]="_pageSize" showFirstLastButtons></mat-paginator>
+</ng-container>

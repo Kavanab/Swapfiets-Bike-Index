@@ -1,15 +1,16 @@
-import {Bike} from "../../model/bike.model";
 import {BikeIndexActions, BikeIndexActionType} from "./bike.actions";
 
-const initialState: Array<Bike> = [];
+const initialState = {
+    listOfBikes: [],
+};
 
 export function BikeIndexReducer(
-    state: Array<Bike> = initialState,
+    state: any = initialState,
     action: BikeIndexActions,
-): any {
+) {
     switch (action.type) {
         case BikeIndexActionType.SearchBikesSuccess:
-            return [...state, ...action.bikes];
+            return {...state, listOfBikes: action.bikes};
         default:
             return state;
     }

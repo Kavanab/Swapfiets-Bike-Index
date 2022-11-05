@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {Actions, Effect, ofType} from "@ngrx/effects";
 import {Observable, of} from "rxjs";
 import * as BikeIndexActions from "./bike.actions";
-import {catchError, mergeMap, map, tap} from "rxjs/operators";
+import {catchError, mergeMap, map, tap, switchMap} from "rxjs/operators";
 import {HttpErrorResponse} from "@angular/common/http";
 import {BikeIndexService} from "../../services/bike-index.service";
 import {Action} from "@ngrx/store";
@@ -16,7 +16,7 @@ export class BikeIndexEffects {
     @Effect()
     searchBikes$: Observable<Action> = this.actions$.pipe(
         ofType(BikeIndexActions.BikeIndexActionType.SearchBikes),
-        mergeMap((action: BikeIndexActions.SearchBikes) => {
+        switchMap((action: BikeIndexActions.SearchBikes) => {
             return this.bikeIndexService.searchBikes(action.searchCriteria).pipe(
                 map((data: Bike[]) => new BikeIndexActions.SearchBikesSuccess(data["bikes"])),
                 catchError((error: HttpErrorResponse) => of(new BikeIndexActions.SearchBikesFailure(error))),
