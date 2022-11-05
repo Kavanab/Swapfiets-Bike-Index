@@ -1,4 +1,6 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from "@angular/core";
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from "@angular/core";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
 import {Bike} from "src/app/model/bike.model";
 import {BikeListSearchCriteria} from "src/app/model/search-criteria.model";
 import {Stolenness} from "src/app/model/stolenness.model";
@@ -14,17 +16,19 @@ export class BikeListComponent implements OnInit, OnChanges {
     @Input() bikesList: Bike[] = [];
     @Output() searchBikes: EventEmitter<BikeListSearchCriteria> = new EventEmitter();
 
+    readonly _pageSize = 5;
     location: string = "";
     stolenness: string[] = [];
     stateOfStolenness: string = "All";
+    displayedColumns: string[] = ["id", "title", "location", "manufacturer_name", "stolen"];
+    dataSource = new MatTableDataSource<Bike>(this.bikesList["listOfBikes"]);
     searchCriteria: BikeListSearchCriteria = {
         page: 1,
-        per_page: 25,
+        per_page: 50,
         stolennes: this.stateOfStolenness,
     };
 
-    displayedColumns: string[] = ['id','title', 'location', 'manufacturer_name', 'stolen'];
-    resultsLength: number = 0;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor() {
         this.stolenness = Object.keys(Stolenness);
@@ -35,17 +39,15 @@ export class BikeListComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        
-       if(changes["bikesList"].currentValue.listOfBikes.length > 0) {
-            console.log(changes["bikesList"].currentValue.listOfBikes);
-            this.resultsLength = changes["bikesList"].currentValue.listOfBikes.length;
-       }
-       
+        if (changes["bikesList"].currentValue.listOfBikes.length > 0) {
+            this.dataSource.data = this.bikesList["listOfBikes"];
+            this.dataSource.paginator = this.paginator;
+        }
     }
-
+    
     searchBikesInLocation() {
-        if(this.location) {
-            if(this.stateOfStolenness !== "Proximity") {
+        if (this.location) {
+            if (this.stateOfStolenness !== "Proximity") {
                 this.stateOfStolenness = "Proximity";
             }
         }

@@ -15,7 +15,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         MatIconModule,
         MatSelectModule,
         MatTableModule,
-        MatPaginatorModule
+        MatPaginatorModule,
     ],
     exports: [
         MatToolbarModule,
@@ -24,7 +24,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         MatIconModule,
         MatSelectModule,
         MatTableModule,
-        MatPaginatorModule
+        MatPaginatorModule,
     ],
 })
 export class AngularMaterialModule { }

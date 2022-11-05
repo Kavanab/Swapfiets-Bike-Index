@@ -15,8 +15,6 @@ export class BikeIndexService {
 
     searchBikes(searchCriteria: BikeListSearchCriteria): Observable<Bike[]> {
         const url = `${this.baseUrl}/search`;
-        console.log(toRequestParams(searchCriteria));
-        
         return this.http.get<Bike[]>(url, {params: toRequestParams(searchCriteria)});
     }
 }
