@@ -5,8 +5,8 @@ import {Bike} from "../../model/bike.model";
 
 export enum BikeIndexActionType {
     SearchBikes = "[Bike Index] Search bikes",
-    SearchBikesSuccess = "[Company] Get Companies success",
-    SearchBikesFailure = "[Company] Get Companies failure",
+    SearchBikesSuccess = "[Bike Index] Search bikes success",
+    SearchBikesFailure = "[Bike Index] Search bikes failure",
 
     GetBikeDetials = "[Bike Index] Get bike detials",
     GetBikeDetialsSuccess = "[Bike Index] Get bike detials success",

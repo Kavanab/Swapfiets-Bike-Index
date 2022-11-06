@@ -15,6 +15,8 @@ import {HeaderComponent} from "./components/header/header.component";
 import {FormsModule} from "@angular/forms";
 import {BikeDetailsContainerComponent} from "./containers/bike-details/bike-details-container.component";
 import {BikeDetailsComponent} from "./components/bike-details/bike-details.component";
+import {StoreDevtoolsModule} from "@ngrx/store-devtools";
+import {environment} from "../environments/environment";
 
 @NgModule({
     declarations: [
@@ -38,6 +40,11 @@ import {BikeDetailsComponent} from "./components/bike-details/bike-details.compo
         EffectsModule.forRoot([
             BikeIndexEffects,
         ]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            logOnly: environment.production, // Restrict extension to log-only mode
+            autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+        }),
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     providers: [],
