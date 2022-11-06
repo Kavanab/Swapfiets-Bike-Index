@@ -1,0 +1,69 @@
+.bike-details-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    margin-top: 2rem;
+}
+.basic-details-card {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to right,#728FCE, #00a9e0);
+    color: #E6E6FA;
+    font-family: initial;
+    font-variant-east-asian: full-width;
+}
+.mat-card-header {
+    align-items: center;
+    margin: 0 ;
+}
+.mat-card-title {
+    display: flex;
+    margin: 0 !important;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 22px;
+    font-weight: bolder;
+}
+.mat-card-subtitle {
+    display: inline;
+    margin: 0 !important;
+    color: #191970;
+    font-size: 15px;
+    font-weight: 600;
+}
+.thumb-image {
+    background-size: cover;
+}
+.mat-accordion {
+    width: 92%;
+    margin-top: 0.5em;
+    .mat-expansion-panel {
+        border-radius: 0px;
+        background: linear-gradient(to right,#728FCE, #00a9e0);
+    }
+    .bike-large-img {
+        height: 15rem;
+        width: 15rem;
+        margin: 2rem;
+    }
+    .expansion-details {
+        display: flex;
+    }
+    .bike-details-text {
+        font-size: medium;
+        font-weight: 400;
+        font-family:'Times New Roman', Times, serif
+    }
+    .mat-expansion-panel-header-title {
+        font-size: large;
+        font-weight: 600;
+        font-family: 'Times New Roman', Times, serif;
+        color: #E6E6FA;
+    }
+    .bike-small-images {
+        height: 7rem;
+        width: 7rem;
+    }
+}

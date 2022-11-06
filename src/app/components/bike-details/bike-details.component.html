@@ -1,3 +1,82 @@
-<ng-container>
-    {{bikeDetails | json}}
-</ng-container>
+<div class="bike-details-container" *ngIf="bikeDetails">
+    <mat-card class="basic-details-card">
+        <mat-card-header>
+            <div mat-card-avatar class="thumb-image" 
+                 [ngStyle]="{'background-image':'url(' + getThumbnailImage() + ')'}">
+            </div>
+            <mat-card-title>{{bikeDetails.title}}</mat-card-title>
+            <mat-card-subtitle>{{bikeDetails.type_of_cycle || "--"}}</mat-card-subtitle>
+        </mat-card-header>
+    </mat-card>
+    <mat-accordion>
+        <mat-expansion-panel (opened)="expansionStatus.img = true" (closed)="expansionStatus.img = false" expanded="expansionStatus.img">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    My Bike Details
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="expansion-details">
+                <img [src]="getBikeImage()" class="bike-large-img">
+                <div class="bike-details-text">
+                    <div>Name: <span>{{bikeDetails.name || "--"}}</span></div>
+                    <div>Description: <span>{{bikeDetails.description || "--"}}</span></div>
+                    <div>Manufacturer: <span>{{bikeDetails.manufacturer_name || "--"}}</span></div>
+                    <div>Paint: <span>{{bikeDetails.paint_description || "--"}}</span></div>
+                    <div>Serial No.: <span>{{bikeDetails.serial || "--"}}</span></div>
+                    <div>Location: <span>{{bikeDetails.location_found || "--"}}</span></div>
+                    <div>Year: <span>{{bikeDetails.year || "--"}}</span></div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="bikeDetails.stolen" 
+                            (opened)="expansionStatus.description = true" 
+                            (closed)="expansionStatus.description = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Stolen Details
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="expansion-details">
+                <div class="bike-details-text">
+                    <div>Date Stolen: <span>{{bikeDetails.date_stolen | date}}</span></div>
+                    <div>Location: <span>{{bikeDetails.stolen_location}}</span></div>
+                    <div>Co-ordinates: <span>{{bikeDetails.stolen_coordinates}}</span></div>
+                    <div>Theft Description: <span>{{bikeDetails.stolen_record['theft_description']}}</span></div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="expansionStatus.frameDetails = true" 
+                            (closed)="expansionStatus.frameDetails = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Frame Details
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="expansion-details">
+                <div class="bike-details-text">
+                    <div>Frame Colors: <span>{{bikeDetails.frame_colors || "--"}}</span></div>
+                    <div>Frame Model: <span>{{bikeDetails.frame_model || "--"}}</span></div>
+                    <div>Frame Size: <span>{{bikeDetails.frame_size || "--"}}</span></div>
+                    <div>Frame Material: <span>{{bikeDetails.frame_material_slug || "--"}}</span></div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf="bikeDetails.public_images?.length > 0" 
+                             (opened)="expansionStatus.publicImages = true" 
+                             (closed)="expansionStatus.publicImages = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Public Images
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="expansion-details">
+                <div *ngFor="let publicImage of bikeDetails.public_images">
+                    <img [src]="publicImage['medium']" class="bike-small-images">
+                    <div class="bike-details-text">
+                        <span>{{publicImage["name"] || "--"}}</span>
+                    </div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
