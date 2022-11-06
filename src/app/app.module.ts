@@ -13,6 +13,8 @@ import {BikeIndexEffects} from "./store/bike/bike.effects";
 import {BikeIndexReducer} from "./store/bike/bike.reducer";
 import {HeaderComponent} from "./components/header/header.component";
 import {FormsModule} from "@angular/forms";
+import {BikeDetailsContainerComponent} from "./containers/bike-details/bike-details-container.component";
+import {BikeDetailsComponent} from "./components/bike-details/bike-details.component";
 
 @NgModule({
     declarations: [
@@ -20,6 +22,8 @@ import {FormsModule} from "@angular/forms";
         BikeListContainerComponent,
         BikeListComponent,
         HeaderComponent,
+        BikeDetailsContainerComponent,
+        BikeDetailsComponent,
     ],
     imports: [
         BrowserModule,

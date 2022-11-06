@@ -7,6 +7,10 @@ export enum BikeIndexActionType {
     SearchBikes = "[Bike Index] Search bikes",
     SearchBikesSuccess = "[Company] Get Companies success",
     SearchBikesFailure = "[Company] Get Companies failure",
+
+    GetBikeDetials = "[Bike Index] Get bike detials",
+    GetBikeDetialsSuccess = "[Bike Index] Get bike detials success",
+    GetBikeDetialsFailure = "[Bike Index] Get bike detials failure",
 }
 
 export class SearchBikes implements Action {
@@ -24,6 +28,24 @@ export class SearchBikesFailure implements Action {
     constructor(public error: HttpErrorResponse) {}
 }
 
+export class GetBikeDetails implements Action {
+    readonly type = BikeIndexActionType.GetBikeDetials;
+    constructor(public id: number) {}
+}
+
+export class GetBikeDetialsSuccess implements Action {
+    readonly type = BikeIndexActionType.GetBikeDetialsSuccess;
+    constructor(public bikeDetails: Bike) {}
+}
+
+export class GetBikeDetialsFailure implements Action {
+    readonly type = BikeIndexActionType.GetBikeDetialsFailure;
+    constructor(public error: HttpErrorResponse) {}
+}
+
 export type BikeIndexActions = SearchBikes | 
 SearchBikesSuccess | 
-SearchBikesFailure ;
+SearchBikesFailure |
+GetBikeDetails | 
+GetBikeDetialsSuccess | 
+GetBikeDetialsFailure ;

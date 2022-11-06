@@ -23,4 +23,15 @@ export class BikeIndexEffects {
             );
         }),
     );
+
+    @Effect()
+    getBikeDetails$: Observable<Action> = this.actions$.pipe(
+        ofType(BikeIndexActions.BikeIndexActionType.GetBikeDetials),
+        switchMap((action: BikeIndexActions.GetBikeDetails) => {
+            return this.bikeIndexService.getBikeDetails(action.id).pipe(
+                map((data: Bike) => new BikeIndexActions.GetBikeDetialsSuccess(data["bike"])),
+                catchError((error: HttpErrorResponse) => of(new BikeIndexActions.GetBikeDetialsFailure(error))),
+            );
+        }),
+    );
 }
