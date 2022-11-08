@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import {ChangeDetectionStrategy, Component, Input} from "@angular/core";
 import {Bike} from "src/app/model/bike.model";
 
 @Component({
@@ -7,7 +7,7 @@ import {Bike} from "src/app/model/bike.model";
     styleUrls: ["./bike-details.component.scss"],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BikeDetailsComponent implements OnChanges{
+export class BikeDetailsComponent {
     
     @Input() bikeDetails: Bike;
 
@@ -15,8 +15,8 @@ export class BikeDetailsComponent implements OnChanges{
         img: true,
         description: false,
         frameDetails: false,
-        publicImages: false
-    }
+        publicImages: false,
+    };
 
     getThumbnailImage() {
         const thumbImg = "/assets/alt-thumbnail.jpeg";
@@ -26,9 +26,5 @@ export class BikeDetailsComponent implements OnChanges{
     getBikeImage() {
         const imageNotFound = "/assets/cycle-drawing.jpg";
         return this.bikeDetails.large_img ? this.bikeDetails.large_img : imageNotFound;
-    }
-
-    ngOnChanges(changes: SimpleChanges): void {
-        console.log(this.bikeDetails)
     }
 }

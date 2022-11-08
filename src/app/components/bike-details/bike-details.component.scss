@@ -18,6 +18,16 @@
     .status {
         text-transform: capitalize;
         margin-top: .5rem;
+        justify-content: center;
+    }
+    .found {
+        color: green;
+    }
+    .owner {
+        color: #191970;
+    }
+    .stolen{
+        color: red;
     }
     .mat-card-header {
         align-items: center;
@@ -67,8 +77,8 @@
     }
     
     .details-card-content {
-        margin-left: 1.5em;
-        margin-top: 1.5em;
+        margin-left: 2rem;
+        margin-top: 2rem;
 
         .serial-num {
             text-transform: uppercase;
@@ -96,7 +106,7 @@
         height: 7rem;
         width: 7rem;
     }
-    .bike-description {
+    .bike-description, .no-images {
         font-family: monospace;
         margin-bottom: 1rem;
     }

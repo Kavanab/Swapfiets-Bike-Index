@@ -9,7 +9,10 @@
                 <mat-card-subtitle class="font-medium">{{bikeDetails.type_of_cycle || "--"}}</mat-card-subtitle>
                 <div>
                     <div class="font-style-large"> Bike Status</div>
-                    <div class="font-style-light status"> {{bikeDetails.status || "Unknown"}}</div>
+                    <div class="font-style-light status flex-row"
+                         [ngClass]="bikeDetails.status"> 
+                        {{bikeDetails.status || "Unknown"}}
+                    </div>
                 </div>
             </mat-card-header>
         </mat-card>
@@ -91,8 +94,7 @@
         </div>
     </div>
     <mat-accordion>
-        <mat-expansion-panel *ngIf="bikeDetails.public_images?.length > 0" 
-                             (opened)="expansionStatus.publicImages = true" 
+        <mat-expansion-panel (opened)="expansionStatus.publicImages = true" 
                              (closed)="expansionStatus.publicImages = false">
             <mat-expansion-panel-header>
                 <mat-panel-title>
@@ -106,8 +108,11 @@
                 <div *ngFor="let publicImage of bikeDetails.public_images" class="other-images">
                     <img [src]="publicImage['medium']" class="bike-small-images">
                     <div class="bike-details-text" matTooltip="{{publicImage['name']}}">
-                        <span class="display-elipses">{{publicImage["name"] || ""}}</span>
+                        <span class="display-elipses font-smaller">{{publicImage["name"] || ""}}</span>
                     </div>
+                </div>
+                <div *ngIf="bikeDetails.public_images?.length<=0">
+                    <span class="no-images">No images available</span>
                 </div>
             </div>
         </mat-expansion-panel>
