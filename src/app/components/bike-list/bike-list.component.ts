@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from "@angular/core";
-import { MatPaginator } from "@angular/material/paginator";
-import { MatTableDataSource } from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatTableDataSource} from "@angular/material/table";
 import {Bike} from "src/app/model/bike.model";
 import {BikeListSearchCriteria} from "src/app/model/search-criteria.model";
 import {Stolenness} from "src/app/model/stolenness.model";
@@ -19,7 +19,7 @@ export class BikeListComponent implements OnInit, OnChanges {
     readonly _pageSize = 5;
     location: string = "";
     stolenness: string[] = [];
-    stateOfStolenness: string = "All";
+    stateOfStolenness: string = "Stolen";
     displayedColumns: string[] = ["id", "title", "location", "manufacturer_name", "stolen"];
     dataSource = new MatTableDataSource<Bike>(this.bikesList["listOfBikes"]);
     searchCriteria: BikeListSearchCriteria = {
