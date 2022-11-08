@@ -1,4 +1,5 @@
 <ng-container>
+    <div class="spinner" *ngIf="!(dataSource.data.length>0)"></div>
     <div class="page-title">
         <mat-card-title class="card-title">Search Bikes</mat-card-title>
     </div>
@@ -10,12 +11,11 @@
                         (selectionChange)="searchBikesInLocation()"
                         [disableOptionCentering]="true">
                 <mat-option *ngFor="let state of stolenness" [value]="state">
-                    {{state}}
+                    {{state === 'Non'? 'Not Stolen' : state}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field class="location-search" appearance="fill">
-            
             <input matInput 
                    type="text" 
                    [(ngModel)]="location" 
