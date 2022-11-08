@@ -51,10 +51,6 @@
                             <span class="font-medium">Frame Material: </span>
                             <span>{{bikeDetails.frame_material_slug || "--"}}</span>
                         </li>
-                        <li>
-                            <span class="font-medium">Bike Description: </span>
-                            <span>{{bikeDetails.description || "--"}}</span>
-                        </li>
                     </ul>
                 </mat-card-content>
             </mat-card>
@@ -100,14 +96,17 @@
                              (closed)="expansionStatus.publicImages = false">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    Other Images
+                    Bike Description & Other Images
                 </mat-panel-title>
             </mat-expansion-panel-header>
-            <div class="expansion-details">
-                <div *ngFor="let publicImage of bikeDetails.public_images">
+            <div class="bike-description">
+                <span>{{bikeDetails.description || "No description available"}}</span>
+            </div>
+            <div class="expansion-details flex-row">
+                <div *ngFor="let publicImage of bikeDetails.public_images" class="other-images">
                     <img [src]="publicImage['medium']" class="bike-small-images">
-                    <div class="bike-details-text">
-                        <span>{{publicImage["name"] || "--"}}</span>
+                    <div class="bike-details-text" matTooltip="{{publicImage['name']}}">
+                        <span class="display-elipses">{{publicImage["name"] || ""}}</span>
                     </div>
                 </div>
             </div>

@@ -1,10 +1,11 @@
 .bike-details-container{
-    height: 100%;
+    height: 50%;
     align-items: center;
     margin-top: 2rem;
 }
 .bike-desc-cards {
     width: 90%;
+    height: 100%;
 }
 .basic-details-card {
     width: 97.3%;
@@ -85,23 +86,29 @@
         border-radius: 0px;
         background: linear-gradient(to right,#728FCE, #00a9e0);
     }
-    
-//     .expansion-details {
-//         display: flex;
-//     }
-//     .bike-details-text {
-//         font-size: medium;
-//         font-weight: 400;
-//         font-family:'Times New Roman', Times, serif
-//     }
-//     .mat-expansion-panel-header-title {
-//         font-size: large;
-//         font-weight: 600;
-//         font-family: 'Times New Roman', Times, serif;
-//         color: #E6E6FA;
-//     }
+    .mat-expansion-panel-header-title {
+        font-size: large;
+        font-weight: 600;
+        font-family: 'Times New Roman', Times, serif;
+        color: #E6E6FA;
+    }
     .bike-small-images {
         height: 7rem;
         width: 7rem;
+    }
+    .bike-description {
+        font-family: monospace;
+        margin-bottom: 1rem;
+    }
+    .other-images {
+        width: 15%;
+    }
+    .display-elipses {
+        overflow: hidden;
+        width: 100px;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        line-height: 1.65;
+        -webkit-box-orient: vertical;
     }
 }

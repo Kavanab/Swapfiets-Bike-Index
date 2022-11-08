@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { 
-    height: -webkit-fill-available; 
+    height: -webkit-fill-available;  
     width: 100%;
+    // overflow: hidden;
 }
 body { 
     margin: 0; 
@@ -54,6 +55,42 @@ section{
     font-size: 55px;
     color: #FFFAF0;
     height: 10%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.font-style-large {
+    font-size: large;
+    font-weight: 600;
+}
+.font-style-light {
+    font-weight: lighter;
+    font-size: large;
+}
+.font-medium {
+    font-size: 15px;
+    font-weight: 600;
+}
+.font-bolder {
+    font-size: x-large;
+    font-weight: bolder;
+}
+.no-bkg {
+    background: none;
+}
+.bkg-linear-blue {
+    background: linear-gradient(to right,#728FCE, #00a9e0);
+}
+.font-mono-bold {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bolder;
 }
 .spinner {
     width: 56px;
