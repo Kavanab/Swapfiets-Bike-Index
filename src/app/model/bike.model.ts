@@ -43,3 +43,9 @@ export interface Bike {
     url: string;
     year?: number;
 }
+
+export interface BikeCount {
+    "non": number;
+    "stolen": number;
+    "proximity": number;
+}
