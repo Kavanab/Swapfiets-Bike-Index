@@ -27,7 +27,6 @@
     width: 80%;
 }
 ::ng-deep .mat-select-panel {
-    // background: #00a9e0 ;
     background: #FFB6C1;
     position: absolute;
     left: 0.4rem;
@@ -99,4 +98,7 @@
     flex-direction: column;
     background: inherit;
     width: 96%;
+}
+.mat-card-title {
+    font-size: 34px !important;
 }

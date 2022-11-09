@@ -1,15 +1,15 @@
-<ng-template class="spinner" #loading></ng-template>
-<div class="bike-details-container flex-column" *ngIf="bikeDetails; else loading">
+<div class="spinner" *ngIf="!bikeDetails"></div>
+<div class="bike-details-container flex-column" *ngIf="bikeDetails">
     <div class="bike-desc-cards ">
         <mat-card class="basic-details-card flex-column bkg-sections">
             <mat-card-header>
                 <div mat-card-avatar class="thumb-image" 
                     [ngStyle]="{'background-image':'url(' + getThumbnailImage() + ')'}">
                 </div>
-                <mat-card-title class="font-bolder">{{bikeDetails.title}}</mat-card-title>
+                <mat-card-title class="font-bolder font-white">{{bikeDetails.title}}</mat-card-title>
                 <mat-card-subtitle class="font-medium">{{bikeDetails.type_of_cycle || "--"}}</mat-card-subtitle>
                 <div>
-                    <div class="font-style-large"> Bike Status</div>
+                    <div class="font-style-large font-white"> Bike Status</div>
                     <div class="font-style-bold status flex-row"
                          [ngClass]="bikeDetails.status"> 
                         {{bikeDetails.status || "Unknown"}}
@@ -98,7 +98,7 @@
                 <mat-expansion-panel class="bkg-sections" (opened)="expansionStatus.publicImages = true" 
                                     (closed)="expansionStatus.publicImages = false">
                     <mat-expansion-panel-header>
-                        <mat-panel-title>
+                        <mat-panel-title class="font-white">
                             Bike Description & Other Images
                         </mat-panel-title>
                     </mat-expansion-panel-header>

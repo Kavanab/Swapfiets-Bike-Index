@@ -58,4 +58,14 @@ export class BikeListComponent implements OnInit, OnChanges {
         };
         this.searchBikes.emit(this.searchCriteria);
     }
+
+    clearSearch() {
+        this.location = "";
+        this.searchCriteria = {
+            ...this.searchCriteria,
+            stolenness: this.stateOfStolenness,
+            location: this.location,
+        };
+        this.searchBikes.emit(this.searchCriteria);
+    }
 }

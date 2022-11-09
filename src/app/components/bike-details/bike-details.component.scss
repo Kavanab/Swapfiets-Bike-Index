@@ -34,6 +34,7 @@
     }
     .mat-card-title {
         margin-bottom: 8px;
+        font-size: 26px !important;
     }
     .mat-card-subtitle {
         display: inline;
@@ -54,7 +55,6 @@
 .second-row {
     margin-top: 0.5rem;
     height: 45%;
-    // border: 1px solid;
 
     .bike-large-img-card {
         width: 30%;
@@ -82,7 +82,7 @@
         }
         ul {
             list-style-type: square;
-            font-family: monospace;
+            font-family: serif;
         }
     }
 }
@@ -105,8 +105,9 @@
         width: 7rem;
     }
     .bike-description, .no-images {
-        font-family: monospace;
+        font-family: serif;
         margin-bottom: 1rem;
+        font-size: 16px;
     }
     .other-images {
         width: 15%;

@@ -11,6 +11,8 @@ export function BikeIndexReducer(
     action: BikeIndexActions,
 ) {
     switch (action.type) {
+        case BikeIndexActionType.SearchBikes:
+            return {...state, listOfBikes: []};
         case BikeIndexActionType.SearchBikesSuccess:
             return {...state, listOfBikes: action.bikes};
         case BikeIndexActionType.GetBikeCountSuccess:

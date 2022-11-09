@@ -41,9 +41,9 @@ import {environment} from "../environments/environment";
             BikeIndexEffects,
         ]),
         StoreDevtoolsModule.instrument({
-            maxAge: 25, // Retains last 25 states
+            maxAge: 25, 
             logOnly: environment.production, // Restrict extension to log-only mode
-            autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+            autoPause: true, 
         }),
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
