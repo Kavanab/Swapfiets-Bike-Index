@@ -10,7 +10,6 @@
 .basic-details-card {
     width: 97.3%;
     height: 8%;
-    color: #E6E6FA;
     font-family: initial;
 
     ::ng-deep .mat-card-header-text {
@@ -71,9 +70,7 @@
 
     .mat-header-2-row{
         display: flex;
-        color: aqua;
         justify-content: center;
-        
     }
     
     .details-card-content {
@@ -97,13 +94,11 @@
     width: 90%;
     .mat-expansion-panel {
         border-radius: 0px;
-        background: linear-gradient(to right,#728FCE, #00a9e0);
     }
     .mat-expansion-panel-header-title {
         font-size: large;
         font-weight: 600;
         font-family: 'Times New Roman', Times, serif;
-        color: #E6E6FA;
     }
     .bike-small-images {
         height: 7rem;

@@ -77,8 +77,16 @@ body {
 .no-bkg {
     background: none;
 }
-.bkg-linear-blue {
-    background: linear-gradient(to right,#728FCE, #00a9e0);
+.bkg-sections {
+    // background: linear-gradient(to right,#728FCE, #00a9e0);
+    
+    //lime green
+    // background-color: #85FFBD;
+    // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);    
+
+    // //pink
+    background-color: #A9C9FF;
+    background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
 }
 .font-mono-bold {
     font-family: monospace;

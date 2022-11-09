@@ -1,7 +1,7 @@
 <ng-template class="spinner" #loading></ng-template>
 <div class="bike-details-container flex-column" *ngIf="bikeDetails; else loading">
-    <div class="bike-desc-cards">
-        <mat-card class="basic-details-card flex-column bkg-linear-blue">
+    <div class="bike-desc-cards ">
+        <mat-card class="basic-details-card flex-column bkg-sections">
             <mat-card-header>
                 <div mat-card-avatar class="thumb-image" 
                     [ngStyle]="{'background-image':'url(' + getThumbnailImage() + ')'}">
@@ -17,7 +17,7 @@
                 </div>
             </mat-card-header>
         </mat-card>
-        <div class="flex-row second-row">
+        <div class="flex-row second-row bkg-sections">
             <mat-card class="bike-large-img-card no-bkg">
                 <img [src]="getBikeImage()" class="bike-large-img">
             </mat-card>
@@ -95,7 +95,7 @@
         </div>
         <div class="third-row">
             <mat-accordion>
-                <mat-expansion-panel (opened)="expansionStatus.publicImages = true" 
+                <mat-expansion-panel class="bkg-sections" (opened)="expansionStatus.publicImages = true" 
                                     (closed)="expansionStatus.publicImages = false">
                     <mat-expansion-panel-header>
                         <mat-panel-title>
