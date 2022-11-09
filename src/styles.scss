@@ -7,7 +7,8 @@ html, body {
 }
 body { 
     margin: 0; 
-    font-family: Roboto, "Helvetica Neue", sans-serif;font-family: serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: serif;
     color: #FFFAF0;
     background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);;
     background-size: 500% 500%;
@@ -43,10 +44,7 @@ body {
 .page-title {
     justify-content: center;
     display: flex;
-    font-family: serif;
-    font-family: serif;
-    font-style: italic;
-    font-size: 55px;
+    font-family: revert;
     color: #FFFAF0;
     height: 10%;
 }
@@ -68,7 +66,7 @@ body {
     font-size: large;
 }
 .font-medium {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
 }
 .font-bolder {
@@ -84,11 +82,14 @@ body {
 
 }
 .font-mono-bold {
-    font-family: monospace;
-    font-size: 1rem;
+    font-family: serif;
+    font-size: 1.2rem;
     font-weight: bolder;
 }
 .font-smaller {
     font-size:smaller;
     font-weight: 300;
+}
+.font-white {
+    color: #fff;
 }
