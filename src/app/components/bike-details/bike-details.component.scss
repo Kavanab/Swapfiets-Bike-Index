@@ -1,5 +1,5 @@
 .bike-details-container{
-    height: 50%;
+    height: 100%;
     align-items: center;
     margin-top: 2rem;
 }
@@ -9,6 +9,7 @@
 }
 .basic-details-card {
     width: 97.3%;
+    height: 8%;
     color: #E6E6FA;
     font-family: initial;
 
@@ -53,11 +54,11 @@
 
 .second-row {
     margin-top: 0.5rem;
-    height: 60%;
+    height: 45%;
+    // border: 1px solid;
 
     .bike-large-img-card {
         width: 30%;
-        height: 100%;
     }
     .bike-large-img {
         height: 100%;
@@ -66,7 +67,6 @@
 
     .details-card {
         width: 35%;
-        height: 100%;
     }
 
     .mat-header-2-row{
@@ -90,6 +90,9 @@
     }
 }
 
+.third-row {
+    margin-top: .5rem;
+}
 .mat-accordion {
     width: 90%;
     .mat-expansion-panel {
