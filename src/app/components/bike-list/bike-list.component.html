@@ -22,7 +22,7 @@
                    (ngModelChange)="searchBikesInLocation()"
                    class="search-input"
                    placeholder="Search for bikes in a location">
-            <mat-icon *ngIf="location" matSuffix (click)="location=''" aria-label="Clear">close</mat-icon>
+            <mat-icon *ngIf="location" matSuffix (click)="clearSearch()" aria-label="Clear">close</mat-icon>
             
           </mat-form-field>
     </div>

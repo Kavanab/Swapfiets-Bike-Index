@@ -3,6 +3,7 @@ import {BikeIndexActions, BikeIndexActionType} from "./bike.actions";
 const initialState = {
     listOfBikes: [],
     bikeDetails: {},
+    totalBikes: 0,
 };
 
 export function BikeIndexReducer(
@@ -10,8 +11,12 @@ export function BikeIndexReducer(
     action: BikeIndexActions,
 ) {
     switch (action.type) {
+        case BikeIndexActionType.SearchBikes:
+            return {...state, listOfBikes: []};
         case BikeIndexActionType.SearchBikesSuccess:
             return {...state, listOfBikes: action.bikes};
+        case BikeIndexActionType.GetBikeCountSuccess:
+            return {...state, totalBikes: action.bikeCount};
         case BikeIndexActionType.GetBikeDetialsSuccess:
             return {...state, bikeDetails: {...action.bikeDetails}};
         default:

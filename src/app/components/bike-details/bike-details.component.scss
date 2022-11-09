@@ -9,7 +9,7 @@
 }
 .basic-details-card {
     width: 97.3%;
-    height: 8%;
+    height: 6%;
     font-family: initial;
 
     ::ng-deep .mat-card-header-text {
@@ -34,6 +34,7 @@
     }
     .mat-card-title {
         margin-bottom: 8px;
+        font-size: 26px !important;
     }
     .mat-card-subtitle {
         display: inline;
@@ -82,7 +83,7 @@
         }
         ul {
             list-style-type: square;
-            font-family: monospace;
+            font-family: serif;
         }
     }
 }
@@ -105,8 +106,9 @@
         width: 7rem;
     }
     .bike-description, .no-images {
-        font-family: monospace;
+        font-family: serif;
         margin-bottom: 1rem;
+        font-size: 16px;
     }
     .other-images {
         width: 15%;
