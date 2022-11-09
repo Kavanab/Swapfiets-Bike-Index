@@ -17,4 +17,9 @@ export class BikeIndexService {
         const url = `${this.baseUrl}/search`;
         return this.http.get<Bike[]>(url, {params: toRequestParams(searchCriteria)});
     }
+
+    getBikeDetails(id: number): Observable<Bike> {
+        const url = `${this.baseUrl}/bikes/${id}`;
+        return this.http.get<Bike>(url);
+    }
 }

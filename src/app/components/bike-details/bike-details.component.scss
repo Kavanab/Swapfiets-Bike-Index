@@ -1,0 +1,122 @@
+.bike-details-container{
+    height: 100%;
+    align-items: center;
+    margin-top: 2rem;
+}
+.bike-desc-cards {
+    width: 90%;
+    height: 100%;
+}
+.basic-details-card {
+    width: 97.3%;
+    height: 8%;
+    font-family: initial;
+
+    ::ng-deep .mat-card-header-text {
+        width: 85% ;
+    }
+    .status {
+        text-transform: capitalize;
+        margin-top: .5rem;
+        justify-content: center;
+    }
+    .found {
+        color: green;
+    }
+    .owner {
+        color: #191970;
+    }
+    .stolen{
+        color: red;
+    }
+    .mat-card-header {
+        align-items: center;
+    }
+    .mat-card-title {
+        margin-bottom: 8px;
+    }
+    .mat-card-subtitle {
+        display: inline;
+        margin: 0 !important;
+        color: #191970;
+    }
+    .thumb-image {
+        width: 3rem;
+        height: 3rem;
+        background-size: cover;
+        margin-right: 1rem;
+    }
+}
+::ng-deep .mat-card-header-text {
+    margin: 0 !important;
+}
+
+.second-row {
+    margin-top: 0.5rem;
+    height: 45%;
+    // border: 1px solid;
+
+    .bike-large-img-card {
+        width: 30%;
+    }
+    .bike-large-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .details-card {
+        width: 35%;
+    }
+
+    .mat-header-2-row{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .details-card-content {
+        margin-left: 2rem;
+        margin-top: 2rem;
+
+        .serial-num {
+            text-transform: uppercase;
+        }
+        ul {
+            list-style-type: square;
+            font-family: monospace;
+        }
+    }
+}
+
+.third-row {
+    margin-top: .5rem;
+}
+.mat-accordion {
+    width: 90%;
+    .mat-expansion-panel {
+        border-radius: 0px;
+    }
+    .mat-expansion-panel-header-title {
+        font-size: large;
+        font-weight: 600;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .bike-small-images {
+        height: 7rem;
+        width: 7rem;
+    }
+    .bike-description, .no-images {
+        font-family: monospace;
+        margin-bottom: 1rem;
+    }
+    .other-images {
+        width: 15%;
+    }
+    .display-elipses {
+        overflow: hidden;
+        width: 100px;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        line-height: 1.65;
+        -webkit-box-orient: vertical;
+    }
+}

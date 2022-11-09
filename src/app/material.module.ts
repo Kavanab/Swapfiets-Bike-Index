@@ -6,6 +6,9 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatCardModule} from "@angular/material/card";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
     imports: [
@@ -16,6 +19,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         MatSelectModule,
         MatTableModule,
         MatPaginatorModule,
+        MatCardModule,
+        MatExpansionModule,
+        MatTooltipModule,
     ],
     exports: [
         MatToolbarModule,
@@ -25,6 +31,9 @@ import {MatPaginatorModule} from "@angular/material/paginator";
         MatSelectModule,
         MatTableModule,
         MatPaginatorModule,
+        MatCardModule,
+        MatExpansionModule,
+        MatTooltipModule,
     ],
 })
 export class AngularMaterialModule { }

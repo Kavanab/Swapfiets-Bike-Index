@@ -7,6 +7,11 @@ export const bike1: Bike = {
     stolen: true,
     title: "Test Bike",
     url: "",
+    manufacturer_id: 1456,
+    rear_tire_narrow: false,
+    registration_created_at: 0,
+    registration_updated_at: 0,
+    test_bike: false,
 };
 
 export const searchCriteria: BaseSearchCriteria = {

@@ -1,0 +1,123 @@
+<ng-template class="spinner" #loading></ng-template>
+<div class="bike-details-container flex-column" *ngIf="bikeDetails; else loading">
+    <div class="bike-desc-cards ">
+        <mat-card class="basic-details-card flex-column bkg-sections">
+            <mat-card-header>
+                <div mat-card-avatar class="thumb-image" 
+                    [ngStyle]="{'background-image':'url(' + getThumbnailImage() + ')'}">
+                </div>
+                <mat-card-title class="font-bolder">{{bikeDetails.title}}</mat-card-title>
+                <mat-card-subtitle class="font-medium">{{bikeDetails.type_of_cycle || "--"}}</mat-card-subtitle>
+                <div>
+                    <div class="font-style-large"> Bike Status</div>
+                    <div class="font-style-light status flex-row"
+                         [ngClass]="bikeDetails.status"> 
+                        {{bikeDetails.status || "Unknown"}}
+                    </div>
+                </div>
+            </mat-card-header>
+        </mat-card>
+        <div class="flex-row second-row bkg-sections">
+            <mat-card class="bike-large-img-card no-bkg">
+                <img [src]="getBikeImage()" class="bike-large-img">
+            </mat-card>
+            <mat-card class="no-bkg details-card flex-column">
+                <mat-card-header class="mat-header-2-row flex-column font-mono-bold">
+                    Bike Details
+                </mat-card-header>
+                <mat-card-content class="flex-column details-card-content">
+                    <ul>
+                        <li>
+                            <span class="font-medium">Serial Number : </span>
+                            <span class="serial-num">{{bikeDetails.serial || "--"}}</span>
+                        </li>
+                        <li>
+                            <span class="font-medium">Manufacturer : </span>
+                            <span>{{bikeDetails.manufacturer_name || "--"}}</span>
+                        </li>
+                        <li>
+                            <span class="font-medium">Name : </span>
+                            <span>{{bikeDetails.name || "--"}}</span>
+                        </li>
+                        <li>
+                            <span class="font-medium">Frame Colors: </span>
+                            <span>{{bikeDetails.frame_colors || "--"}}</span>
+                        </li>
+                        <li>
+                            <span class="font-medium">Frame Model: </span>
+                            <span>{{bikeDetails.frame_model || "--"}}</span>
+                        </li>
+                        <li>
+                            <span class="font-medium">Frame Size: </span>
+                            <span>{{bikeDetails.frame_size || "--"}}</span>
+                        </li>
+                        <li>
+                            <span class="font-medium">Frame Material: </span>
+                            <span>{{bikeDetails.frame_material_slug || "--"}}</span>
+                        </li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="no-bkg details-card flex-column">
+                <mat-card-header class="mat-header-2-row flex-column font-mono-bold">
+                    Stolen Details
+                </mat-card-header>
+                <mat-card-content class="flex-column details-card-content">
+                    <ng-container [ngSwitch]="bikeDetails.status">
+                        <ul *ngSwitchCase="'stolen'">
+                            <li>
+                                <span class="font-medium">Stolen Date : </span>
+                                <span class="serial-num">{{bikeDetails.date_stolen | date}}</span>
+                            </li>
+                            <li>
+                                <span class="font-medium">Location : </span>
+                                <span class="serial-num">{{bikeDetails.stolen_location}}</span>
+                            </li>
+                            <li>
+                                <span class="font-medium">Co-Ordinates : </span>
+                                <span class="serial-num">{{bikeDetails.stolen_coordinates}}</span>
+                            </li>
+                        </ul>
+                        <ul *ngSwitchCase="'found'">
+                            <li>
+                                <span class="font-medium">Location Found : </span>
+                                <span class="serial-num">{{bikeDetails.location_found}}</span>
+                            </li>
+                        </ul>
+                        <ul *ngSwitchDefault>
+                            <li>
+                                <span class="font-medium"> Not Stolen Yet </span> 
+                            </li>
+                        </ul>
+                    </ng-container>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="third-row">
+            <mat-accordion>
+                <mat-expansion-panel class="bkg-sections" (opened)="expansionStatus.publicImages = true" 
+                                    (closed)="expansionStatus.publicImages = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Bike Description & Other Images
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="bike-description">
+                        <span>{{bikeDetails.description || "No description available"}}</span>
+                    </div>
+                    <div class="expansion-details flex-row">
+                        <div *ngFor="let publicImage of bikeDetails.public_images" class="other-images">
+                            <img [src]="publicImage['medium']" class="bike-small-images">
+                            <div class="bike-details-text" matTooltip="{{publicImage['name']}}">
+                                <span class="display-elipses font-smaller">{{publicImage["name"] || ""}}</span>
+                            </div>
+                        </div>
+                        <div *ngIf="bikeDetails.public_images?.length<=0">
+                            <span class="no-images">No images available</span>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

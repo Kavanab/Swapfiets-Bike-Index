@@ -1,14 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { 
-    height: -webkit-fill-available; 
+    height: -webkit-fill-available;  
     width: 100%;
 }
 body { 
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;font-family: serif;
-    
     color: #FFFAF0;
+    background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);;
+    background-size: 500% 500%;
+    position: relative;
+    animation: animate 7.5s ease-in-out infinite;
+    justify-content: center;
+    align-items: center;
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
 
@@ -16,17 +21,6 @@ body {
     margin: 0;
     padding: 0;
     outline: 0;
-}
-
-section{
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);;
-    background-size: 400% 400%;
-    position: relative;
-    animation: animate 7.5s ease-in-out infinite;
-    justify-content: center;
-    align-items: center;
 }
 
 @keyframes animate{
@@ -54,6 +48,54 @@ section{
     font-size: 55px;
     color: #FFFAF0;
     height: 10%;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.font-style-large {
+    font-size: large;
+    font-weight: 600;
+}
+.font-style-light {
+    font-weight: lighter;
+    font-size: large;
+}
+.font-medium {
+    font-size: 15px;
+    font-weight: 600;
+}
+.font-bolder {
+    font-size: x-large;
+    font-weight: bolder;
+}
+.no-bkg {
+    background: none;
+}
+.bkg-sections {
+    // background: linear-gradient(to right,#728FCE, #00a9e0);
+    
+    //lime green
+    // background-color: #85FFBD;
+    // background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);    
+
+    // //pink
+    background-color: #A9C9FF;
+    background-image: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%);
+}
+.font-mono-bold {
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: bolder;
+}
+.font-smaller {
+    font-size:smaller;
+    font-weight: 300;
 }
 .spinner {
     width: 56px;
